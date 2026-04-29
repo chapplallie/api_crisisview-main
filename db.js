@@ -10,11 +10,11 @@ if (process.env.NODE_ENV === 'test') {
         logging: false
     });
 } else {
-    // Use MySQL for other environments
+    // Use Postgres for other environments
     sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
         host: process.env.DB_HOST,
         port: process.env.DB_PORT,
-        dialect: 'mysql',
+        dialect: 'postgres',
         logging: false
     });
 }
