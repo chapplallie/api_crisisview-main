@@ -1,7 +1,7 @@
 services:
   backend:
-    image: registry.spokayhub.top/efrei-projet-fil-rouge-cicd-backend:${IMAGE_TAG:-latest}
-    container_name: efrei-projet-fil-rouge-cicd-backend-stg
+    image: registry.spokayhub.top/api_crisiview-main:${IMAGE_TAG:-latest}
+    container_name: api_crisiview-main-stg
     env_file:
       - ./backend-stg.env
     environment:
