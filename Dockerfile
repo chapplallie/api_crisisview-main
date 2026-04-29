@@ -1,23 +1,13 @@
-FROM node:22-alpine AS builder
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci
-
-COPY . .
-RUN npm run start
-
-FROM node:22-alpine AS runtime
+FROM node:22-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm ci --omit=dev
 
-COPY --from=builder /app/dist /app/dist
-COPY --from=builder /app/public /app/public
+# Copy all source files
+COPY . .
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "dist/src/main.js"]
+ENTRYPOINT ["node", "server.js"]
