@@ -6,14 +6,14 @@ pipeline {
     parameters {
         choice(name: 'DEPLOY_ENV', choices: ['stg', 'prod'], description: 'Environnement cible')
         string(name: 'REGISTRY', defaultValue: 'registry.spokayhub.top', description: 'URL du registry Docker')
-        string(name: 'GIT_URL', defaultValue: 'https://github.com/chapplallie/api_crisiview-main.git', description: 'URL du dépôt Git')
+        string(name: 'GIT_URL', defaultValue: 'https://github.com/chapplallie/api_crisisview-main.git', description: 'URL du dépôt Git')
         string(name: 'GIT_BRANCH', defaultValue: 'main', description: 'Branche à builder')
         string(name: 'TARGET_PLATFORM', defaultValue: 'linux/amd64', description: 'Plateforme Docker build')
         string(name: 'VM_HOST', defaultValue: '172.178.120.232', description: 'IP ou hostname de la VM cible')
         string(name: 'VM_USER', defaultValue: 'azureuser', description: 'Utilisateur SSH sur la VM cible')
     }
     environment {
-        IMAGE_NAME     = 'api_crisiview-main'
+        IMAGE_NAME     = 'api_crisisview-main'
         IMAGE          = "${params.REGISTRY}/${IMAGE_NAME}"
         COMPOSE_FILE   = "docker-compose.${params.DEPLOY_ENV}.yml"
         CONTAINER_NAME = "${IMAGE_NAME}-${params.DEPLOY_ENV}"

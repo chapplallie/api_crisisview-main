@@ -1,7 +1,7 @@
 services:
   backend:
-    image: registry.spokayhub.top/api_crisiview-main:${IMAGE_TAG:-latest}
-    container_name: api_crisiview-main-stg
+    image: registry.spokayhub.top/api_crisisview-main:${IMAGE_TAG:-latest}
+    container_name: api_crisisview-main-stg
     env_file:
       - ./backend-stg.env
     environment:
