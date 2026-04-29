@@ -37,14 +37,14 @@ pipeline {
             }
         }
 
-       // stage('Test') {
-         //   steps {
-           //     sh '''
-             //       npm ci
-               //     CI=true npm test -- --watchAll=false --coverage
-      //          '''
-        //    }
-       // }
+        stage('Test') {
+            steps {
+                sh '''
+                    npm ci
+                    CI=true npm test -- --watchAll=false --coverage
+             '''
+        }
+        }
 
       //  stage('SonarQube Analysis') {
         //    steps {
